@@ -168,7 +168,7 @@ inputTransformer:
   type: pass
 ```
 
-It will hit your API endpoint `https://your.api.endpoint/check?text=Message from the chat` and expecting the response with following format:
+It will call API endpoint `https://your.api.endpoint/check?text=Message from the chat` and expect the response with the following format:
 ```json
 { "spam": 0.99 }
 ```
