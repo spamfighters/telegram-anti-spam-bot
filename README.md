@@ -18,7 +18,7 @@ Built for communities, powered by AI and flexible rules.
 - [🔍 Filters](#-filters)
   - [🌐 Language Injection Detection](#-language-injection-detection)
   - [😊 Emoji Limit Filter](#-emoji-limit-filter)
-  - [🤖 AI Spam Model Filter](#-ai-spam-model-filter)
+  - [🤖 Remote Spam Model Filter](#-remote-spam-model-filter)
   - [💰 Strong Restricted Words](#-strong-restricted-words)
 - [🧾 `filters.yaml` - Filters logic file](#-example-full-filtersyaml)
 - [☁️ Self-Hosted Deployment](#️-self-hosted-deployment)
@@ -154,7 +154,7 @@ inputTransformer:
 
 ---
 
-### 🤖 AI Spam Model Filter
+### 🤖 Remote Spam Model Filter
 
 ```yaml
 type: remote_filter
@@ -167,6 +167,12 @@ banWeight: 0.98
 inputTransformer:
   type: pass
 ```
+
+It will hit your API endpoint `https://your.api.endpoint/check?text=Message from the chat` and expecting the response with following format:
+```json
+{ "spam": 0.99 }
+```
+Where 0.0 -> 1.0 is spam confidence
 
 ---
 
